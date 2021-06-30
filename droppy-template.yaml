@@ -1,0 +1,12 @@
+version: '2'
+services:
+  droppy:
+    container_name: droppy
+    image: silverwind/droppy:latest
+    ports:
+      - 8989:8989
+    TZ=America/New_York
+    volumes:
+      - /home/joe/bucket/droppy:/config
+      - /home/joe/bucket/Documents:/files
+    restart: unless-stopped
