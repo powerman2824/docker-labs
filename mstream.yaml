@@ -1,0 +1,13 @@
+version: "2"
+services:
+  mstream:
+    image: linuxserver/mstream:latest
+    container_name: mstream
+    environment:
+      - TZ=America/New_York
+    volumes:
+      - /home/joe/bucket/mstream:/config
+      - /home/joe/bucket/Share/Music:/music
+    ports:
+      - 3000:3000
+    restart: unless-stopped
