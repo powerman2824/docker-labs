@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+  unbound:
+    image: mvance/unbound:arm32v7
+    container_name: unbound
+    volumes:
+      - './unbound:/etc/unbound'
+    restart: unless-stopped
+    network_mode: host
+
+  pihole:
+    image: pihole/pihole:latest
+    container_name: pihole
+    depends_on:
+      - unbound
+    environment:
+      TZ: 'America/New_York'  # <- fixed the timezone format
+      WEBPASSWORD: 'changeme'  # change this!
+      DNS1: 127.0.0.1#5335     # <- use localhost to reach Unbound in host mode
+      DNS2: 127.0.0.1#5335
+    volumes:
+      - './etc-pihole:/etc/pihole'
+      - './etc-dnsmasq.d:/etc/dnsmasq.d'
+    cap_add:
+      - NET_ADMIN
+    restart: unless-stopped
+    network_mode: host
