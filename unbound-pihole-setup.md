@@ -1,6 +1,6 @@
 You’ll also want to download the latest root hints into that same folder:
 
-curl -o ./unbound/root.hints https://www.internic.net/domain/named.root
+<pre>``` bash curl -o ./unbound/root.hints https://www.internic.net/domain/named.root ```<pre>
 
 ✅ Test Flow After Setup:
 
