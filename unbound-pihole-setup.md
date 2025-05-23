@@ -23,7 +23,7 @@ unbound.conf
 </pre>
 docker-compose.yaml
 <pre>
-  version: "3"
+version: "3"
 
 services:
   unbound:
