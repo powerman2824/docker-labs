@@ -4,6 +4,8 @@ Create the directory and config file:
   mkdir -p ~/pihole-unbound/unbound
   cd ~/pihole-unbound/unbound
   nano unbound.conf
+  cd ~/pihole-unbound
+  nano docker-compose.yaml
 </pre>
 unbound.conf
 <pre>
